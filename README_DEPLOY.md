@@ -21,7 +21,7 @@ docker exec -it ollama ollama pull llama3.1
   
 ## Troubleshooting
 
-### Détéction/Utilisation GPU
+### Détection/Utilisation GPU
 
 Le code source à été modifier afin que la plupart des problèmes soient réglés. Cependant des problèmes de drivers ou d'accès au GPU peuvent persister avec Ollama et Docker. Les commandes suivantes peuvent etre utilisées afin de résoudre les problèmes les plus communs : 
   
