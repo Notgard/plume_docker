@@ -19,6 +19,17 @@ Ou directement en executant la commande de `pull` :
 docker exec -it ollama ollama pull llama3.1
 ```
   
+## Lancement des conteneurs Plume
+
+La compilation et le lancement des conteneurs à été simplifié dans le script bash `setup.sh` à la racine de ce projet :
+```bash
+chmod +x setup.sh && ./setup.sh
+```
+
+Une fois l'image lancée, il suffit alors de se connecter à l'adresse http://localhost:8000
+Un serveur MinIO est mis à disposition afin de pouvoir stocker les logs de générations des articles Plume, accessible à http://localhost:9000 (identifiants dans l'environnement)
+
+  
 ## Troubleshooting
 
 ### Détection/Utilisation GPU
@@ -56,16 +67,5 @@ Si vous rencontrer des problèmes en utilisant les versions conteneurisés de Ol
 docker logs -f ollama #logs d'ollama
 docker logs -f fastapi-app #logs de Plume
 ```
+
 ---
-
-## Lancement des conteneurs Plume
-
-La compilation et le lancement des conteneurs à été simplifié dans le script bash `setup.sh` à la racine de ce projet :
-```bash
-chmod +x setup.sh && ./setup.sh
-```
-
-Une fois l'image lancée, il suffit alors de se connecter à l'adresse http://localhost:8000
-Un serveur MinIO est mis à disposition afin de pouvoir stocker les logs de générations des articles Plume, accessible à http://localhost:9000 (identifiants dans l'environnement)
-
-
