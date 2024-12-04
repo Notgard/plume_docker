@@ -1,0 +1,135 @@
+h2 {
+    font-size: 28px;
+    color: #34495e;
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.article {
+    width: 100%;
+    max-width: 900px;
+    padding: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.article {
+    padding-top: 5px;
+}
+
+.article .file_content {
+    background-color: #f0f0f0; /* Couleur de fond pour le bloc de code */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 15px; /* Espacement intérieur */
+    overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
+    font-family: 'Courier New', Courier, monospace; /* Police pour le préformaté */
+}
+
+.file_content h3 {
+    font-size: 1.75rem; /* Taille de police pour h3 */
+    color: #333; /* Couleur du texte */
+    margin-top: 20px; /* Marge en haut */
+    margin-bottom: 10px; /* Marge en bas */
+    font-weight: 600; /* Épaisseur de la police */
+}
+
+.file_content h4 {
+    font-size: 1.5rem; /* Taille de police pour h4 */
+    color: #555; /* Couleur du texte */
+    margin-top: 15px; /* Marge en haut */
+    margin-bottom: 10px; /* Marge en bas */
+    font-weight: 500; /* Épaisseur de la police */
+}
+
+.file_content h5 {
+    font-size: 1.25rem; /* Taille de police pour h4 */
+    color: #777; /* Couleur du texte */
+    margin-top: 15px; /* Marge en haut */
+    margin-bottom: 10px; /* Marge en bas */
+    font-weight: 500; /* Épaisseur de la police */
+}
+
+.file_content h6 {
+    font-size: 1rem; /* Taille de police pour h4 */
+    color: #999; /* Couleur du texte */
+    margin-top: 15px; /* Marge en haut */
+    margin-bottom: 10px; /* Marge en bas */
+    font-weight: 500; /* Épaisseur de la police */
+}
+
+/* Pour rendre les titres plus distincts */
+.file_content h3::before,
+.file_content h4::before,
+.file_content h5::before,
+.file_content h6::before {
+    content: ""; /* Crée un pseudo-élément pour les styles */
+    display: block; /* Affiche en bloc pour prendre de l'espace */
+    width: 50px; /* Largeur de la ligne */
+    height: 4px; /* Hauteur de la ligne */
+    background-color: #007bff; /* Couleur de la ligne */
+    margin-bottom: 8px; /* Marge entre la ligne et le titre */
+}
+
+.file_content a {
+    color: white;
+    background-color: #3498db;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.file_content a:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.file_content a:active {
+    background-color: #1e5f74;
+    transform: translateY(1px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+body, a {
+    transition: all 0.3s ease;
+}
+
+.button-container {
+    text-align: center; /* Centrer le bouton */
+    margin-top: 20px; /* Ajouter un espace au-dessus du bouton */
+}
+.article h2 {
+    display: flex;
+    justify-content: space-between; /* Espace entre le titre et le bouton */
+    align-items: center;
+    margin: 0;
+}
+
+button{
+    padding: 15px 30px;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    float: right;
+    transition: background-color 0.3s;
+    align-self: flex-end;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

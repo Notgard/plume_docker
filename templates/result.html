@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+
+{% block static_css %}
+<link rel="stylesheet" href="{{ url_for('static', path='style/result.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', path='style/sidebar.css') }}">
+{% endblock %}
+
+{% block static_js %}
+<script  src="{{ url_for('static', path='scripts/sidebar.js') }}" defer></script>
+<script  src="{{ url_for('static', path='scripts/result.js') }}" defer></script>
+{% endblock %}
+
+{% block sidebar %}
+{% include "sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="article">
+    <h2>{{file_title}}         
+        <button id="retourPage">Page d'accueil</button>
+    </h2>
+    <div class="file_content">
+        {{file_content}}
+    </div>
+</div>
+
+{% endblock %}

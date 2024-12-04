@@ -1,0 +1,12 @@
+<div class="menu-icon" onclick="toggleSidebar()">
+    &#9776;
+</div>
+
+<div class="sidebar" id="sidebar">
+    <ul>
+        <h3>Liste des articles</h3>
+        {% for i in range(list_files|length) %}
+            <li><a href="/result?filename={{ list_files[i] }}">{{ list_files_names[i] }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

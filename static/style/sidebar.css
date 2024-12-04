@@ -1,0 +1,66 @@
+/* Sidebar Hidden by Default */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background-color: #2d3e50;
+    padding-top: 20px;
+    transition: left 0.3s ease-in-out;
+    z-index: 10;
+    overflow: auto; /* Ensure content can scroll if too long */
+}
+
+/* Button for menu */
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: #007bff;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 15;
+}
+
+/* Style for links in sidebar */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 15px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+.sidebar h3 {
+    color: white;
+    padding: 10px 15px;
+    margin-top: 30px;
+}
+
+/* Show sidebar when active */
+.sidebar.active {
+    left: 0;
+}
+
+
+.redirect-message {
+    font-size: 14px; /* Taille de police plus petite */
+    color: #777; /* Couleur légèrement grisée */
+    font-family: "Roboto", sans-serif; /* Utilise la même police que le reste */
+    margin-top: 10px; /* Espacement au-dessus du message */
+    text-align: center; /* Centre le texte */
+}

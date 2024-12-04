@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@300;400&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: #f9f5e7; /* Couleur de fond */
+    font-family: "Roboto", sans-serif; /* Police moderne pour le texte */
+}
+
+.background {
+    position: fixed; /* Pour que l'image ne bouge pas */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/logo_ministère.png');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.07; /* Transparence de l'image */
+    z-index: -1; /* Pour que l'image reste derrière le contenu */
+    pointer-events: none; /* Empêche toute interaction avec l'image */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.title {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.title img {
+    height: 80px;
+}
+
+h1 {
+    font-size: 56px;
+    color: #333;
+    margin: 0;
+    font-family: "Poppins", sans-serif; /* Police moderne pour le titre */
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+}

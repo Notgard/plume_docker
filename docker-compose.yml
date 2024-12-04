@@ -1,0 +1,64 @@
+services:
+  app:
+    build:
+      context: .
+    container_name: fastapi-app
+    restart: always
+    ports:
+      - "8000:8000"
+    env_file:
+      .env.docker
+    depends_on:
+      - mariadb_db
+      - qdrant
+      - minio
+    networks:
+      - my_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  
+  mariadb_db:
+    image: mariadb:latest
+    container_name: mariadb_db
+    restart: always
+    env_file:
+      .env.docker
+    ports:
+      - "3307:3306"
+    volumes:
+      - mariadb_data:/var/lib
+    networks:
+      - my_network
+  
+  qdrant:
+    image: qdrant/qdrant
+    container_name: qdrant
+    restart: always
+    env_file:
+      .env.docker
+    ports: 
+      - "6333:6333"
+    networks:
+      - my_network
+  
+  minio:
+    image: minio/minio
+    container_name: minio
+    env_file:
+      .env.docker
+    ports:
+     - "9000:9000"
+     - "9001:9001"
+    networks:
+      - my_network
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+
+volumes:
+  mariadb_data:
+  minio_data:
+
+
+networks:
+  my_network:

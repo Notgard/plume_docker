@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+
+{% block static_css %}
+<link rel="stylesheet" href="{{ url_for('static', path='style/connection.css') }}">
+{% endblock %}
+
+{% block static_js %}
+<script src="{{ url_for('static', path='scripts/connection.js') }}" defer></script>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block content %}
+
+<div class="connection" id="oldUser">
+    <h2>Choisissez votre nom d'utilisateur</h2>
+    <form action="/" method="post">
+        <div>
+            <select name="user" id="user_name">
+                <option value="" disabled selected hidden>Je suis...</option>
+                {% for i in range(list_users|length) %}
+                <option value="User-{{i}}">{{list_users[i]}}</option>
+                {% endfor %}
+            </select>        
+        </div>
+        <button type="submit" id = "butConnection">Se connecter</button>
+        <button type="button" id = "newUser">Je n'ai pas de compte</button>
+    </form>
+</div>  
+<div class="connection" style = 'visibility: hidden;"' id="newUserDiv">
+    <h2>Remplissez vos nom et prénom</h2>
+    <form action="/" method="post">
+        <input placeholder="Nom" id="nom" name="nom" type="text" required>
+        <input placeholder="Prénom" id="prenom" name="prenom" type="text" required>
+        <button type="submit" id="buttonSubmit">Créer l'utilisateur</button>
+    </form>
+</div>
+
+{% endblock %}

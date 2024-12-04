@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+
+{% block static_css %}
+<link rel="stylesheet" href="{{ url_for('static', path='style/loading.css') }}">
+{% endblock %}
+
+{% block static_js %}
+<script  src="{{ url_for('static', path='scripts/loading.js') }}" defer></script>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block content %}
+
+<div class="loading-container">
+    <div class="spinner"></div>
+    <div class="loading-text">Chargement en cours pour : <strong>{{ topic.replace('_', ' ') }}</strong>. Veuillez patienter...</div>
+</div>
+<div id="status"></div>
+<div id="topic_truncated" data-topic="{{ topic.replace('_', ' ') }}"></div>
+
+{% endblock %}

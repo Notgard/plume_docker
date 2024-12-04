@@ -1,0 +1,80 @@
+.loading-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fond légèrement plus opaque */
+    border-radius: 15px; /* Arrondir les bords */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre plus marquée */
+    padding: 40px; /* Padding interne */
+    max-width: 400px; /* Largeur maximale */
+    width: 100%; /* Prend toute la largeur disponible */
+    margin-top: 20px; /* Distance depuis le haut de la page */
+    opacity: 0; /* Commence invisible pour l'animation */
+    animation: fadeIn 1s forwards, slideIn 0.5s forwards; /* Animation de fondu et de translation */
+    display: flex; /* Utilisation de flexbox pour aligner les éléments */
+    flex-direction: column; /* Direction verticale pour le contenu */
+    align-items: center; /* Centre horizontalement le contenu */
+}
+
+.loading-text {
+    font-size: 20px; /* Taille de police plus grande */
+    color: #333; /* Couleur du texte */
+    font-family: "Poppins", sans-serif; /* Police */
+    margin-bottom: 20px; /* Marge en dessous */
+    text-align: center; /* Centre le texte dans le conteneur */
+    font-weight: 500; /* Poids de police pour accentuer */
+}
+
+.spinner {
+    border: 6px solid rgba(0, 123, 255, 0.3); /* Couleur de fond */
+    border-top: 6px solid #007bff; /* Couleur de la barre supérieure */
+    border-radius: 50%; /* Forme ronde */
+    width: 60px; /* Largeur du spinner */
+    height: 60px; /* Hauteur du spinner */
+    animation: spin 1s linear infinite; /* Animation de rotation */
+    margin-bottom: 20px; /* Marge en dessous du spinner */
+    align-self: center; /* Centre le spinner horizontalement */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Commence invisible */
+    }
+    to {
+        opacity: 1; /* Devient visible */
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px); /* Départ un peu plus haut */
+    }
+    to {
+        transform: translateY(0); /* Position finale */
+    }
+}
+
+#status {
+    font-size: 18px; /* Taille de police plus petite */
+    font-family: "Courier New", monospace; /* Police Courier New pour le style moderne */
+    color: #555; /* Couleur légèrement grisée */
+    margin-top: 15px; /* Réduit l'espacement entre le statut et le conteneur de chargement */
+    letter-spacing: 0.05em; /* Espacement des lettres pour un look un peu plus "tech" */
+    font-weight: bold; /* Légère mise en valeur */
+    animation: blink 1.5s infinite; /* Animation de clignotement */
+    max-width: 350px; /* Limite la largeur du statut */
+    text-align: center; /* Centre le texte */
+    line-height: 1.4; /* Espacement des lignes pour une meilleure lisibilité */
+    padding: 0 10px; /* Espacement latéral pour éviter que le texte touche les bords */
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.7; /* Légèrement transparent au début et à la fin */
+    }
+    50% {
+        opacity: 1; /* Complètement opaque au milieu */
+    }
+}

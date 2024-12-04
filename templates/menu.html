@@ -1,0 +1,123 @@
+{% extends "main.html" %}
+
+{% block static_css %}
+<link rel="stylesheet" href="{{ url_for('static', path='style/menu.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', path='style/sidebar.css') }}">
+{% endblock %}
+
+{% block static_js %}
+<script  src="{{ url_for('static', path='scripts/menu.js') }}" defer></script>
+<script  src="{{ url_for('static', path='scripts/loading.js') }}" defer></script>
+<script  src="{{ url_for('static', path='scripts/sidebar.js') }}" defer></script>
+{% endblock %}
+
+{% block sidebar %}
+{% include "sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<form id="storm" method="post" action="/loading" enctype="multipart/form-data">
+    <div class="topic">
+        <h2>Objet de la rédaction :</h2>
+        <textarea rows="3" name="topic" placeholder="Tapez votre texte ici..."></textarea>
+    </div>
+
+    <div class="format">      
+        <h2>Choix du format :</h2>
+        <div class="container">
+            <div class="nbr_pages">
+                <h3>Nombre de pages attendus (3-5 pour de 3 à 5) :</h3>
+                <textarea placeholder="Pages" class="page-input"></textarea>
+            </div>
+            <div class="type-document">
+                <h3>Type de document :</h3>
+                <select class="document-type">
+                    <option value="" disabled selected hidden>Sélectionner un type de document</option>
+                    <option value="document1">Scientifique</option>
+                    <option value="document2">Économique</option>
+                    <option value="document3">Littéraire</option>
+                </select>
+            </div>
+        </div>
+        <div class="nbr_paragraphes">
+            <h3>Nombre de paragraphes :</h3>
+            <textarea placeholder="3-5" name="nbr_paragraphe"></textarea>
+        </div>
+        <div class="description">
+            <h3>Description supplémentaire sur le format :</h3>
+            <textarea placeholder="Informations supplémentaires"></textarea>
+        </div>
+    </div>
+
+    <div class="source">
+        <h2>Choix de la source :</h2>
+        <div class="choix_source">
+            <div class="radio-group">
+                <input type="radio" name="source" value="local" id="local">
+                <label for="local">Mes documents</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" name="source" value="cloud" id="cloud">
+                <label for="cloud">Arxiv</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" name="source" value="internet" id="internet">
+                <label for="internet">Internet</label>
+            </div>
+        </div>
+        <div class="mesDocuments" style="display: none;" id="localSection">
+            <h3>Déposez les documents :</h3>
+            <div class="upload-form">
+                <input type="file" name="files" id="fileInput" webkitdirectory multiple>
+                <label for="fileInput" id="labelText">
+                    <img src="{{ url_for('static', path='/images/upload_icon.png') }}" alt="Icône de téléchargement">
+                    <span>Cliquez ou glissez vos dossiers ici</span>
+                </label>
+                <div class="result" id="resultMessage"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parametres">
+        <div class="container">
+            <h2>Paramètres avancés :</h2>
+            <div class="checkbox-group">
+                <input type="checkbox" name="montrer" id="montrer">
+                <label for="montrer">Montrer</label>
+            </div>
+        </div>
+        <div id="advancedOptions" style="display: none; margin-top: 20px;">
+            <div class="container">
+                <div class="type-document">
+                    <h3>Choix du LLM :</h3>
+                    <select class="choix-llm" name="source_llm">
+                        <option value="" disabled selected hidden>Sélectionner un LLM</option>
+                        {% for model in models%}
+                            <option value = {{model}}>{{model}} (Ollama)</option>
+                        {% endfor %}
+                        <option value="Aristote">Aristote (llama 3 70B)</option>
+                    </select>
+                </div>
+                <div class="type-document">
+                    <h3>Langue de la production :</h3>
+                    <select class="langage" name="language" id="langage">
+                        <option value="" disabled selected hidden>Sélectionner la langue</option>
+                        <option value="francais">Français</option>
+                        <option value="anglais">Anglais</option>
+                        <option value="langue_topic">Dans la langue de la question</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="valider">Valider</button>
+</form>
+
+<!-- Message de chargement -->
+<div id="loadingMessage" style="display: none;" class="loading-message">
+    <div class="spinner"></div>
+    <div class="loading-text">Upload en cours, veuillez patienter...</div>
+    <div class="redirect-message">Vous allez être redirigé vers la page de chargement de Plume.</div>
+</div>
+{% endblock %}
