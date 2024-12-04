@@ -1,5 +1,7 @@
 # Storm Project
 
+# VOIR LE FICHIER "README_DEPLOY.md" POUR OBTENIR LES INFORMATIONS DE DEPLOIMENT DE PLUME
+
 ## Prérequis
 
  - Docker / docker compose
