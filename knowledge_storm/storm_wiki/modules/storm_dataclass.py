@@ -149,7 +149,7 @@ class StormInformationTable(InformationTable):
     def prepare_table_for_retrieval(self):
         ###MODIF
         #cant enable cuda use of embedding models since the docker container has no built in cuda support, so torch can't access device even with nvidia-container-toolkit installed on host
-        self.encoder = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+        self.encoder = SentenceTransformer("paraphrase-MiniLM-L6-v2", device="cuda")
         self.collected_urls = []
         self.collected_snippets = []
         for url, information in self.url_to_info.items():

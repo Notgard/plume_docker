@@ -239,7 +239,7 @@ class TopicExpert(dspy.Module):
             if len(searched_results) > 0:
                 ###MODIF
                 #same thing, can't enable cuda support here
-                model=SentenceTransformer("paraphrase-MiniLM-L6-v2")
+                model=SentenceTransformer("paraphrase-MiniLM-L6-v2", device="cuda")
                 used_urls = set()
                 info = ""
                 keep_top_k=2
